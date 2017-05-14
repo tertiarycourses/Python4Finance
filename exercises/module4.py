@@ -3,93 +3,147 @@
 # Author: Dr Alfred Ang
 # Date: 13 Jan 2017
 
-# Module 4 Time Series
+# Module 3 Basic of Data Visualization
 
-#import datetime
-
-# date = datetime.datetime(2017,1,13)
-# print(date)
-
-# import pandas as pd 
-
-# date = pd.to_datetime('2017-1-13')
-# print(date)
-# print(pd.to_datetime("4th of July"))
-# print(pd.to_datetime("13.01.2000"))
-# print(pd.to_datetime("7/8/2000"))
-# print(pd.to_datetime("7/8/2000", dayfirst=True))
-# print(issubclass(pd.Timestamp, datetime.datetime))
-
-# date = pd.date_range('2017-1-1',periods=30)
-# date = pd.date_range('2017-1-1',periods=12,freq='M')
-# print(pd.date_range(start="2000-01-01", periods=3, freq='H'))
-# print(pd.date_range(start="2000-01-01", periods=3, freq='T'))
-# print(pd.date_range(start="2000-01-01", periods=3, freq='S'))
-# print(pd.date_range(start="2000-01-01", periods=3, freq='B'))
-# print(pd.date_range(start="2000-01-01", periods=5, freq='1D1h1min10s'))
-# print(pd.date_range(start="2000-01-01", periods=5, freq='12BH'))
-
-# print(date)
-
-# import numpy as np
-# import matplotlib.pyplot as plt
-
-import pandas as pd
+# Setup
 import numpy as np 
-import matplotlib.pyplot as plt 
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
+import seaborn as sb
 
-# ts = pd.Series(np.random.randn(1000), index = pd.date_range('2016-1-1',periods=1000))
+rcParams['figure.figsize'] = 5, 4
+sb.set_style('whitegrid')
 
-# ts = ts.cumsum()
-# ts.plot()
-# ts2 = ts.rolling(window=60)
-# ts2.mean().plot()
+# A simple demo of matplot
+# x = np.linspace(-4,4,100)
+# y = np.sin(x)
+# plt.plot(x,y,color='#334411',marker='o',linestyle='-')
+# plt.plot(x,y,'ro-',label='sine',x,y2,'g^-',label='cosine')
+# plt.subplot(2,1,1)
+# plt.plot(x,y,'ro-',label='sine')
+# plt.subplot(2,1,2)
+# plt.plot(x,y2,'g^-',label='cosine')
+# plt.grid()
+# plt.legend(loc='upperleft')
+# plt.legend(bbox_to_anchor=(1.1,1.05))
+# plt.xlabel('x')
+# plt.ylabel('y')
+# plt.title('sine curve')
 # plt.show()
 
-df = pd.DataFrame(np.random.randn(1000,4),index = pd.date_range('2016-1-1',periods=1000),columns=['A','B','C','D'])
+# Scatter Plot
+# df = pd.read_csv("data/mtcars.csv",usecols=['car_names','mpg','cyl','wt'])
+# plt.scatter(df.mpg,df.wt)
+# plt.show()
 
-df = df.cumsum()
-df2 = df.rolling(window=60)
-df2.mean().plot(subplots=True)
+# Multple Plots
+# df = pd.read_csv("data/mtcars.csv",usecols=['car_names','mpg','cyl','wt'])
+# plt.plot(df[['mpg','cyl','wt']])
+# plt.show()
+
+# Bar plot
+# df = pd.read_csv("data/mtcars.csv",usecols=['car_names','mpg','cyl','wt'])
+# mpg = df['mpg']
+# mpg.plot(kind='bar')
+# plt.show()
+
+# Pie Chart
+# x = [1,2,3,4,0.5]
+# plt.pie(x)
+# type = ['bicycle', 'motorbike','car', 'van', 'stroller']
+# plt.pie(x, labels= type)
+# plt.show()
+
+# Histogram
+# df = pd.read_csv("data/mtcars.csv",usecols=['car_names','mpg','cyl','wt'])
+# mpg = df['mpg']
+# plt.hist(mpg)
+# sb.distplot(mpg)
+# plt.show()
+
+# Scatter Plot with Regression
+# df = pd.read_csv("data/mtcars.csv",usecols=['car_names','mpg','cyl','hp'])
+# df.plot(kind='scatter', x='hp', y='mpg', c=['darkgray'], s=150)
+# sb.regplot(x='hp', y='mpg', data=df, scatter=True)
+# plt.show()
+
+# Pair Plot
+#df = pd.read_csv("data/mtcars.csv",usecols=['car_names','mpg','cyl','hp'])
+#sb.pairplot(df)
+#plt.show()
+
+# Box Plot
+# df = pd.read_csv("data/mtcars.csv",usecols=['car_names','mpg','cyl','wt','am'])
+# df.boxplot(column='mpg', by='am')
+# df.boxplot(column='wt', by='am')
+# plt.show()
+
+# Object-Oriented Plotting
+# x = range(1,10)
+# y = [1,2,3,4,0,4,3,2,1]
+# fig = plt.figure()
+# ax = fig.add_axes([.1, .1, 0.8, 0.8])
+# ax.set_xlim([1,9])
+# ax.set_ylim([0,5])
+# ax.set_xticks([0,1,2,3,4,5,6,7,8,9,10])
+# ax.set_yticks([0,1,2,3,4,5])
+# ax.grid()
+# ax.plot(x,y)
+# plt.show()
+
+# Subplot
+# x = range(1,10)
+# y = [1,2,3,4,0,4,3,2,1]
+# fig = plt.figure()
+# fig,(ax1,ax2) = plt.subplots(1,2)
+# ax1.plot(x)
+# ax2.plot(x,y)
+# plt.show()
+
+# Limits, Ticks, Grid, Colors, Linestyles, Linewidth
+# x = range(1,10)
+# y = [1,2,3,4,0,4,3,2,1]
+# fig = plt.figure()
+# ax = fig.add_axes([.1, .1, 0.8, 0.8])
+# ax.set_xlim([1,9])
+# ax.set_ylim([0,5])
+# ax.set_xticks([0,1,2,3,4,5,6,7,8,9,10])
+# ax.set_yticks([0,1,2,3,4,5])
+# ax.grid()
+# ax.plot(x,y)
+# ax.plot(x,y,color='salmon')
+# ax.plot(x,y, ls='--', lw=2)
+# plt.show()
+
+# Challenge - Object Orient Plottin
+# df = pd.read_csv("data/mtcars.csv",usecols=['car_names','mpg','cyl','wt'])
+# df = df[['mpg','cyl','wt']]
+# color_theme = ['darkgray', 'lightsalmon', 'powderblue']
+# df.plot(color=color_theme)
+# plt.show()
+
+
+# Label, Title
+# df = pd.read_csv("data/mtcars.csv",usecols=['car_names','mpg','cyl','wt'])
+# mpg = df['mpg']
+# fig = plt.figure()
+# ax = fig.add_axes([.1, .1, 0.8, 0.8])
+# mpg.plot()
+
+# Time Series
+from pandas_datareader import data,wb
+aapl = data.DataReader("AAPL", 'yahoo', '2016-1-1', '2016-8-17')
+ts = aapl[['Close']]
+ts.plot()
 plt.show()
 
-# # Time series plotting
-# # ====================
 
-# rng = pd.date_range(start='2000', periods=120, freq='MS')
-# ts = pd.Series(np.random.randint(-10, 10, size=len(rng)), rng).cumsum()
-
-# print(ts.head())
-
-# plt.clf()
-# ts.plot(c='k', title='Example time series')
-# plt.savefig('time_series_1.png')
-
-# ts.resample('2A').plot(c='0.75', ls='--')
-# ts.resample('5A').plot(c='0.25', ls='-.')
-
-# plt.clf()
-
-# tsx = ts.resample('1A')
-# ax = tsx.plot(kind='bar', color='k')
-# plt.savefig('time_series_2.png')
-
-# ax.set_xticklabels(tsx.index.year)
-# plt.clf()
-# ts = pd.Series(np.random.randn(1000), index=pd.date_range('1/1/2000', periods=1000))
-# df = pd.DataFrame(np.random.randn(1000, 4), index=ts.index, columns=['A', 'B', 'C', 'D'])
-# df = df.cumsum()
-# df.plot(color=['k', '0.75', '0.5', '0.25'], ls='--')
-# plt.savefig('time_series_3.png')
-
-mport pandas as pd
-import numpy as np 
-import matplotlib.pyplot as plt 
-
-ts = pd.Series(np.random.randn(1000), index = pd.date_range('2016-1-1',periods=1000))
-
-ts = ts.cumsum()
-ts2 = ts.rolling(window=60)
-print(ts2.mean()[61:120])
-# ts.plot()
+# Challenge Time Series Plot
+# df = pd.read_csv('data/aapl.csv',index_col='Date')
+# df2 = df['Close']
+# df3 = df2.rolling(window=20).mean()
+#df2 = df2.sample(frac=0.1)
+# df2.plot()
+# df3.plot()
 # plt.show()

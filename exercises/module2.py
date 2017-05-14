@@ -10,18 +10,20 @@ import pandas as pd
 
 # Pandas Series
 # Create Pandas Series from List
-# s = pd.Series([1,3,5,6])
-# s = pd.Series([1,3,5,6],index=['a','b','c','d'])
+# a = [3,4,5,6]
+# s = pd.Series(a)
+# s = pd.Series(a,index=['A1','A2','A3','A4'])
 # print(s)
 
 # Create Pands Series from Numpy Array
-# s = pd.Series(np.random.randn(100))
-# date = pd.date_range('20170101',periods=10)
-# s = pd.Series(np.random.randn(10),index=date)
+# a = np.random.randn(100)*5+100
+# date = pd.date_range('20170101',periods=100)
+# s = pd.Series(a,index=date)
 # print(s)
 
 # Create Pandas Series from Dictionary
-# s = pd.Series({'a': 1, 'b': 3, 'c': 5, 'd': 6})
+# a = {'A1':5,'A2':3,'A3':6,'A4':2}
+# s = pd.Series(a)
 # print(s)
 
 # Pandas Series Arithematic
@@ -36,13 +38,15 @@ import pandas as pd
 # print(s.index)
 # print(s.values)
 # print(len(s))
-# print(s.unique)
+
 
 # Viewing Pandas Series Data
-#s = pd.Series(np.random.randn(1000))
+# a = np.random.randn(100)*5+100
+# date = pd.date_range('20170101',periods=100)
+# s = pd.Series(a,index=date)
 #print(s.head())
 #print(s.tail(10))
-#print(s[300:305])
+#print(s[30:35])
 
 # Selecting Pandas Series Data
 # s = pd.Series({'a': 1, 'b': 3, 'c': 5, 'd': 6})
@@ -74,8 +78,10 @@ import pandas as pd
 
 # Create Pandas DataFrame from Numpy Array
 # d = np.arange(24).reshape(6,4)
-# df = pd.DataFrame(d, index=np.arange(1,7), columns=list('ABCD'))
+# col_name = ['Q1','Q2','Q3','Q4']
+# df = pd.DataFrame(d,index=list('ABCDEF'),columns=col_name)
 # print(df)
+
 
 # Create Pandas DataFrame from Dictionary
 # df = pd.DataFrame(
@@ -89,11 +95,12 @@ import pandas as pd
 # print(df)
 
 # Create Pandas DataFrame from Series
-# date = pd.date_range('20160701', periods=6)
-# s1 = pd.Series(np.arange(1,7,1),index=date)
-# s2 = pd.Series(np.arange(7,13,1),index=date)
-# df = pd.DataFrame({'A': s1, 'B': s2})
+# date = pd.date_range('20170101',periods=6)
+# s1 = pd.Series(np.random.randn(6),index=date)
+# s2 = pd.Series(np.random.randn(6),index=date)
+# df = pd.DataFrame({'Asia':s1,'Europe':s2})
 # print(df)
+
 
 # Challenge
 # df = pd.DataFrame(
@@ -126,19 +133,14 @@ import pandas as pd
 
 # Arithematics
 
-# d1 = [[1,2],[3,4]]
-# d2 = [[5,6],[7,8]]
-
-# df1 = pd.DataFrame(d1, index=[1,2], columns=['a','b'])
-# df2 = pd.DataFrame(d2, index=[1,2], columns=['a','b'])
-
-# df1['c']=[9,10]
+# d1 = np.arange(12).reshape(4,-1)
+# d2 = np.arange(0,24,2).reshape(3,-1)
+# df1 = pd.DataFrame(d1)
+# df2 = pd.DataFrame(d2)
 # print(df1)
-
-# df1.insert(1,'d',[11,12])
-# print(df1)
+# print(df2)
+# print(df1+df2)
 	
-
 # Selecting Column data
 # df = pd.DataFrame(
 # 	{
@@ -149,9 +151,9 @@ import pandas as pd
 # 	columns = ['name','height','age'],
 # 	index = ['A1','A2','A3']
 # 	)
-# print(df['name'])
+# print(df[['name','height']])
 # print(df.name)
-# print(df[[0]])
+# print(df[[1,2]])
 
 # Selecting Row data
 # print(df.ix[0])
@@ -173,18 +175,21 @@ import pandas as pd
 # print(a)
 
 
-# import pandas as pd 
-
 # Import/Export data
 
 # Import data from csv file
-# sp500 = pd.read_csv('data/sp500.csv',index_col='Symbol',usecols=[0,2,3,7])
-# print(sp500.head())
+# sp500 = pd.read_csv('data/sp500.csv',index_col ='Symbol', usecols=['Symbol','Sector','Price'])
+# print(sp500.head)
+# print(sp500.Price)
 
-# Export data to csv file
-# sp500.to_csv('data/test.csv')
+# Import data from excel file
+# pip install xlrd
+sp500 = pd.read_excel('data/sp500.xlsx',index_col='Symbol',usecols=[0,2,3,7])
+print(sp500.head())
+
 
 # Import data from internet
+# pip install pandas-datareader
 # from pandas_datareader import data,wb
 # msft = data.DataReader("MSFT", "yahoo","2017-1-1","2017-1-11")
 # print(msft.tail())
@@ -196,19 +201,20 @@ import pandas as pd
 # d = quandl.get("YAHOO/INDEX_DJI",trim_start='2016-01-01',trim_stop='2016-08-26')
 # print(d.tail(10))
 
+# Export data to csv file
+# sp500.to_csv('data/test.csv')
+
+
 # Filtering Data
 
 # Filtering Pandas Series
 # date = pd.date_range('20170101',periods=10)
-# s = pd.Series(np.random.randn(10),index=date)
-# print(s>0)
-# print(s[s>0])
+# d = np.random.randn(10)*4+5
+# ts = pd.Series(d,index=date)
+# print(ts[ts>5])
 
 # Filtering Pandas DataFrame
-# sp500 = pd.read_csv("data/sp500.csv", 
-#                     index_col='Symbol', 
-#                     usecols=[0, 2, 3, 7])
-
+# sp500 = pd.read_excel('data/sp500.xlsx',index_col ='Symbol', usecols=['Symbol','Sector','Price'])
 # print(sp500.Price>100)
 # print(sp500[sp500.Price == sp500.Price.max()])
 
@@ -292,16 +298,17 @@ import pandas as pd
 # print(df3)
 
 # Concat 2 DataFrames - 2nd example
-# d1 = np.array(np.arange(24)).reshape((6,4))
-# dates1 = pd.date_range('20160701', periods=6)
-# df1 = pd.DataFrame(d1, index=dates1, columns=list('ABCD'))
-# d2 = np.array(np.arange(12)).reshape((3,4))
-# dates2 = pd.date_range('20160707', periods=3)
-# df2 = pd.DataFrame(d2, index=dates2, columns=list('ABCD'))
-# df2 = pd.DataFrame(d2, index=dates2, columns=list('ABEF'))
-
-# df3 = pd.concat([df1,df2])
+# d1 = np.arange(24).reshape(6,4)
+# dates = pd.date_range('20170101',periods=6)
+# df1 = pd.DataFrame(d1,index=dates)
+# print(df1)
+# d2 = np.arange(12).reshape(3,4)
+# dates = pd.date_range('20170201',periods=3)
+# df2 = pd.DataFrame(d2,index=dates)
+# print(df2)
+# df3 = pd.concat([df1,df2],axis=0,keys=['Jan','Feb'])
 # print(df3)
+
 
 # Challenge: Concat
 #sp500 = pd.read_csv('data/sp500.csv',index_col='Symbol',usecols=[0,2,3,7])
@@ -440,15 +447,21 @@ import pandas as pd
 
 
 # Basic Statistics in Pandas
-df = pd.DataFrame(
-	{
-	'name': ['Ally','Jane','Belinda'],
-	'height':[160,155,163],
-	'age': [40,35,42]
-	},
-	columns = ['name','height','age'],
-	index = ['101','105','108']
-	)
+# df = pd.DataFrame(
+# 	{
+# 	'name': ['Ally','Jane','Belinda'],
+# 	'height':[160,155,163],
+# 	'age': [40,35,42]
+# 	},
+# 	columns = ['name','height','age'],
+# 	index = ['101','105','108']
+# 	)
+
+# df = pd.read_csv("data/mtcars.csv",index_col='car_names',usecols=['car_names','mpg','cyl','hp','wt'])
+# print(df.head)
+# print(df.sum(axis=1))
+# print(df.mean())
+
 # print(df.describe())
 # s1 = pd.Series([4,5,7,9,13])
 # print(s1.pct_change())
