@@ -7,52 +7,43 @@ The course outline can be found in
 
 https://www.tertiarycourses.com.sg/python-pandas-essential-training-in-singapore.html
 
-<p><strong>Module 1 Basics of Numpy</strong> </p>
+<p><strong>Module 1 Overview of Numpy</strong> </p>
 <ul>
-<li>Array Creation</li>
-<li>Array Operations</li>
-<li>Indexing &amp; Slicing&nbsp;</li>
-<li>Shape Manipulation</li>
+<li>What is Numpy?</li>
+<li>1D and 2D Array</li>
+<li>Array Arithmetics</li>
+<li>Special Functions</li>
+<li>Math Functions</li>
+<li>Selecting and Slicing Array Elements</li>
+<li>Filtering Array Elements</li>
+<li>Transforming Array</li>
 <li>Statistics</li>
 </ul>
-<p><strong>Module 2 Basics of Matplotlib</strong> </p>
-<ul>
-<li>Create Plots</li>
-<li>Plot Attributes</li>
-<li>Subplots</li>
-<li>Save Figure</li>
-<li>Other Plots</li>
-</ul>
-<p><strong>Module 3 Import/Export Data</strong> </p>
-<ul>
-<li>Import/Export CSV</li>
-<li>Import Data from Web</li>
-</ul>
-<p><strong>Module 4 Pandas</strong> </p>
+<p><strong>Module 2 Pandas</strong> </p>
 <ul>
 <li>Series</li>
 <li>Data Frame</li>
-<li>Selecting Data</li>
-<li>Filtering</li>
-<li>Reindexing</li>
+<li>Selecting/Slicing Data</li>
+<li>Import/Export Data - CSV, Excel, Internet</li>
+<li>Filtering Data</li>
 <li>Missing Data</li>
-<li>Data Aggregation</li>
-<li>Statistics</li>
+<li>Removing Duplicated Data</li>
+<li>Joining Data from Different Sources</li>
+<li>Transforming Data</li>
+<li>Aggregating Data</li>
+<li>Pandas Statistics</li>
 </ul>
-<p><strong>Module 5 Time Series</strong></p>
+<p><strong>Module 3 Time Series</strong></p>
 <ul>
-<li>DateTime</li>
+<li>Trend &amp; Seasonality</li>
 <li>Time Range</li>
-<li>Time Zone</li>
-<li>Time Series</li>
-<li>Slicing Time Series</li>
-<li>Resampling Time Series</li>
+<li>Rolling Window</li>
 </ul>
-<p><strong>Module 6 Time Series Stock Data</strong> </p>
+<p><strong>Module 4 Data Visualization</strong></p>
 <ul>
-<li>Plotting Time Series</li>
-<li>Plotting Multiple Time Series</li>
-<li>Plotting Daily Change&nbsp;</li>
-<li>Moving Window</li>
+<li>Overview of Matplotlib &amp; Seaborn</li>
+<li>Plot Types</li>
+<li>Plot Attributes</li>
+<li>Object Oriented Plots</li>
+<li>Time Series Plot</li>
 </ul>
-
