@@ -6,6 +6,7 @@ These are the exercise files used for [Python Pandas Essential Training for Fina
 The course outline can be found in 
 
 https://www.tertiarycourses.com.sg/python-pandas-essential-training-in-singapore.html
+https://www.tertiarycourses.com.my/python-pandas-essential-training-in-malaysia.html
 
 <p><strong>Module 1 Overview of Numpy</strong> </p>
 <ul>
