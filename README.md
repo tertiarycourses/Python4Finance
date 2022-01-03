@@ -1,12 +1,13 @@
 # Python for Finance
 ## by [Tertiary Courses](https://www.tertiarycourses.com.sg/)
 
-These are the exercise files used for [Python Pandas Essential Training for Finance](https://www.tertiarycourses.com.sg/python-pandas-essential-training-in-singapore.html) course. 
+These are the exercise files used for [Python for Finance](https://www.tertiarycourses.com.sg/python-pandas-training-finance.html) course. 
 
 The course outline can be found in 
 
-https://www.tertiarycourses.com.sg/python-pandas-essential-training-in-singapore.html
-https://www.tertiarycourses.com.my/python-pandas-essential-training-in-malaysia.html
+https://www.tertiarycourses.com.sg/python-pandas-training-finance.html
+https://www.tertiarycourses.com.my/python-pandas-training-finance-malaysia.html
+
 
 <p><strong>Topic 1 Get Started on Python</strong> </p>
 <ul>
