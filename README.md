@@ -6,6 +6,7 @@ These are the exercise files used for [Python for Finance](https://www.tertiaryc
 The course outline can be found in 
 
 https://www.tertiarycourses.com.sg/python-pandas-training-finance.html
+
 https://www.tertiarycourses.com.my/python-pandas-training-finance-malaysia.html
 
 
